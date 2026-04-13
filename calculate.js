@@ -6,5 +6,5 @@ function add(a, b) {
 }
 
 
-const result = add(a,b)
-console.log(result)
+const RESULT = add(a,b)
+console.log(RESULT)
