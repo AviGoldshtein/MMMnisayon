@@ -1,4 +1,4 @@
-name: "Require PR Approval"
+name: Require PR Approval
 
 on:
   pull_request_review:
@@ -19,11 +19,9 @@ jobs:
               repo: context.repo.repo,
               pull_number: context.payload.pull_request.number,
             });
-
             const approvals = reviews.filter(review => review.state === 'APPROVED');
-
             if (approvals.length > 0) {
-              console.log(`Found ${approvals.length} approval(s). Proceeding...`);
+              console.log('Approved!');
             } else {
-              core.setFailed("חייב לקבל אישור (Approve) לפחות מחבר אחד כדי למזג את הקוד!");
+              core.setFailed("חייב לקבל אישור (Approve) לפחות מחבר אחד!");
             }
